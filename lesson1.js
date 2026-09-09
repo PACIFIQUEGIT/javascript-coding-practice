@@ -7932,3 +7932,1820 @@ console.log(solution([1, 3, 5, 7, 9, 11], 7));*/
 }
 console.log(solution("WLLDL"));*/
 
+/*function solution(numbers){
+    let write = 0;
+    for(let read = 0; read < numbers.length; read++){
+        if(numbers[read] !== 0){
+            let temp = numbers[read];
+            numbers[read] = numbers[write];
+            numbers[write] = temp;
+            write++;
+        }
+    }
+    return numbers;
+}
+console.log(solution([0, 1, 0, 3, 12]));*/
+
+/*function solution(numbers){
+    let largest = -Infinity;
+    let second = -Infinity;
+    for(let num of numbers){
+        if(num > largest){
+            second = largest;
+            largest = num;
+        } else if(num < largest && num > second){
+            second = num;
+        }
+    }
+    return second === -Infinity ? -1 : second;
+}
+console.log(solution([-1, -5, -3]));*/
+
+/*function solution(numbers){
+    let largest = -Infinity;
+    for(let i = 0; i < numbers.length - 1; i++){
+        let sum = numbers[i] + numbers[i + 1];
+        largest = Math.max(largest, sum);
+    }
+    return largest;
+}
+console.log(solution([-5, -2, -8]));*/
+
+/*function solution(numbers, k){
+    if(numbers.length === 0){
+        return [];
+    }
+    k = k % numbers.length;
+    let j = numbers.length;
+    let last = numbers.slice(j - k);
+    let first = numbers.slice(0, j - k);
+
+    return [...last, ...first];
+}
+console.log(solution([1, 2, 3, 4, 5], 2));*/
+
+/*function solution(a, b){
+    let result = [];
+    let i = 0;
+    let j = 0;
+    while(i < a.length && j < b.length){
+        if(a[i] <= b[j]){
+            result.push(a[i]);
+            i++;
+        } else {
+            result.push(b[j]);
+            j++;
+        } 
+    }
+    while(i < a.length){
+        result.push(a[i]);
+        i++;
+    }
+    while(j < b.length){
+        result.push(b[j]);
+        j++;
+    }
+    return result;
+}
+console.log(solution([1, 3, 5], [2, 4, 6]));*/
+
+/*function solution(s){
+    let stack = [];
+    const pairs = {
+        "(" : ")",
+        "[" : "]",
+        "{" : "}"
+    };
+    for(let ch of s){
+        if(ch === "(" || ch === "{" || ch === "["){
+            stack.push(ch);
+        } else {
+            let last = stack.pop();
+            if(pairs[last] !== ch){
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
+console.log(solution("{[]}"));*/
+
+/*function solution(s){
+    let open = 0;
+    let needed = 0;
+
+    for(let ch of s){
+        if(ch === "("){
+            open++;
+        } else if(open > 0){
+            open--;
+        } else {
+            needed++;
+        }
+    }
+    return open + needed;
+}
+console.log(solution("()))(("));*/
+
+/*function solution(s){
+    let result = [];
+    s = s.split(" ");
+    let i = s.length - 1;
+    while(i >= 0){
+        result.push(s[i]);
+        i--;
+    }
+    return result.join(" ");
+}
+console.log(solution("one two three"));*/
+
+/*function solution(s){
+    return s.split(" ").reverse().join(" ");
+}
+console.log(solution("one two three"));*/
+
+/*function solution(numbers){
+    let count = {};
+    for(let num of numbers){
+        count[num] = (count[num] || 0) + 1;
+    }
+    for(let num of numbers){
+        if(count[num] === 1){
+            return num;
+        }
+    }
+    return -1
+}
+console.log(solution([4, 5, 1, 2, 1, 4, 5]));*/
+
+/*function solution(numbers){
+    let seen = [];
+    for(let num of numbers){
+        if(!seen.includes(num)){
+            seen.push(num);
+        }
+    }
+    return seen;
+}
+console.log(solution([1, 1, 2, 2, 3, 4, 4]));*/
+
+/*function solution(numbers){
+    return [...new Set(numbers)];
+}
+console.log(solution([1, 1, 2, 2, 3, 4, 4]));*/
+
+/*function solution(numbers){
+    let seen = new Set();
+    for(let num of numbers){
+        if(!seen.has(num)){
+            seen.add(num);
+        } else {
+            return true;
+        }
+    }
+    return false;
+}
+console.log(solution([1, 2, 3, 1]));*/
+
+/*function solution(a, b){
+    let result = [];
+    for(let num of a){
+        if(b.includes(num) && !result.includes(num)){
+            result.push(num);
+        }
+    }
+    return result;
+}
+console.log(solution([1, 2, 2, 3, 4], [2, 2, 4, 5]));*/
+
+/*function solution(a, b){
+    let seen = new Set(b);
+    let result = new Set();
+    for(let num of a){
+        if(seen.has(num)){
+            result.add(num);
+        }
+    }
+    return [...result];
+}
+console.log(solution([1, 2, 2, 3, 4], [2, 2, 4, 5]));*/
+
+/*function solution(numbers){
+    let write = 0;
+    for(let read = 0; read < numbers.length; read++){
+        if(numbers[read] < 0){
+            let temp = numbers[write];
+            numbers[write] = numbers[read];
+            numbers[read] = temp;
+
+            write++;
+        }
+    }
+    return numbers;
+}
+console.log(solution([1, -2, 3, -4, 5, -6]));*/
+
+/*function solution(s){
+    let answer = "";
+    let longest = 0;
+    s = s.split(" ");
+    for(let word of s){
+        if(word.length > longest){
+            longest = word.length;
+            answer = word;
+        }
+    }
+    return answer;
+}
+console.log(solution("I love JavaScript code"));*/
+
+/*function solution(numbers){
+    let seen = new Set(numbers);
+    let longest = 0;
+    for(let num of numbers){
+        if(!seen.has(num - 1)){
+            let current = num;
+            let count = 1;
+            while(seen.has(current + 1)){
+                current++;
+                count++;
+            }
+            longest = Math.max(longest, count);
+        }
+    }
+    return longest;
+}
+console.log(solution([100, 4, 200, 1, 3, 2]));*/
+
+/*function solution(numbers){
+    let largest = 0;
+    for(let i = 0; i < numbers.length; i++){
+        for(let j = i + 1; j < numbers.length; j++){
+            let product = numbers[i] * numbers[j];
+            largest = Math.max(largest, product);
+        }
+    }
+    return largest;
+}
+console.log(solution([3, 5, 2, 9]));*/
+
+/*function solution(numbers){
+    let answer = numbers[0];
+    let count = {};
+    for(let num of numbers){
+        count[num] = (count[num] || 0) + 1;
+    }
+    for(let num of numbers){
+        if(count[num] > count[answer]){
+            answer = num;
+        } else if(count[num] === count[answer] && num > answer){
+            answer = num;
+        }
+    }
+    return answer;
+}
+console.log(solution([2, 2, 4, 4, 7]));*/
+
+/*function solution(numbers, target){
+    let seen = {};
+    for(let i = 0; i < numbers.length; i++){
+        let num = numbers[i];
+        let complement = target - num;
+        if(seen[complement] !== undefined){
+            return[seen[complement], i];
+        }
+        seen[num] = i;
+    }
+    return [-1, -1];
+}
+console.log(solution([2, 7, 11, 15], 9));*/
+
+/*function solution(prices){
+    let profit = 0;
+    for(let i = 0; i < prices.length; i++){
+        for(let j = i + 1; j < prices.length; j++){
+            if(prices[j] > prices[i]){
+                profit = Math.max(profit, prices[j] - prices[i]);
+            }
+        }
+    }
+    return profit;
+}
+console.log(solution([7, 6, 4, 3, 1]));*/
+
+/*function solution(prices){
+    let cheapest = Infinity;
+    let profit = 0;
+    for(let i = 0; i < prices.length; i++){
+        if(prices[i] < cheapest){
+            cheapest = prices[i];
+        } else {
+            profit = Math.max(profit, (prices[i] - cheapest));
+        }
+    }
+    return profit;
+}
+console.log(solution([7, 6, 4, 3, 1]));*/
+
+/*function solution(diffs){
+    let current = 1500;
+    let highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [current, highest];
+}
+console.log(solution([-100, 200, -50, 300]));*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return h * 60 + m;
+    }
+    let lastDeparture = -1;
+    let minutes = 0;
+    let current = toMinutes(current_time);
+    let i = 0;
+    let j = departure_times.length - 1;
+    while(i <= j){
+        let mid = Math.floor((i + j) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(current > departure){
+            lastDeparture = departure;
+            minutes = current - lastDeparture;
+            i = mid + 1;
+        } else {
+            j = mid - 1;
+        }
+    }
+    if(lastDeparture === -1){
+        return -1;
+    }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(fragments, accessCode){
+    let target = String(accessCode);
+    let count = 0;
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combined = String(fragments[i]) + String(fragments[j]);
+            if(combined === target){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(numbers){
+    let answer = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            answer.push(1);
+        } else {
+            answer.push(0);
+        }
+    }
+    return answer;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(a){
+    let count = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount % 2 === 1){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--; 
+    }
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(n){
+    let frame = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            frame.push("*".repeat(n));
+        } else {
+            frame.push("*" + " ".repeat(n-2) + "*")
+        }
+    }
+    return frame;
+}
+console.log(solution(7));*/
+
+/*function solution(length, queries){
+    let answer = [];
+    let samePairs = 0;
+    let colors = new Map();
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){
+            if(coord > 0 && colors.get(coord - 1) === oldColor){
+                samePairs--;
+            }
+            if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+                samePairs--;
+            }
+        }
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        answer.push(samePairs);
+    }
+    return answer;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){
+        let departure1 = nextShuttle(alpha2beta, currentTime);
+        if(departure1 === -1){
+            return -1;
+        }
+        currentTime = departure1 + 100;
+        let departure2 = nextShuttle(beta2alpha, currentTime);
+        if(departure2 === -1){
+            return -1;
+        }
+        currentTime = departure2 + 100;
+        missions--;
+    }
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(numbers){
+    let sum = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            } else {
+                break;
+            }
+        }
+        sum += x;
+    }
+    return sum;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(numbers){
+    let prefix = [];
+    let suffix = [];
+    let answer = [];
+    prefix[0] = 1;
+    suffix[numbers.length - 1] = 1;
+    for(let i = 1; i < numbers.length; i++){
+        prefix[i] = prefix[i- 1] * numbers[i-1]; 
+    }
+    for(let i = numbers.length - 2; i >= 0; i--){
+        suffix[i] = suffix[i+1] * numbers[i+1];
+    }
+    for(let i = 0; i < numbers.length; i++){
+        answer[i] = prefix[i] * suffix[i];
+    }
+    return answer;
+}
+console.log(solution([1, 2, 3, 4]));*/
+
+/*function solution(numbers){
+    let write = 0;
+    for(let read = 0; read < numbers.length; read++){
+        if(numbers[read] !== 0){
+            let temp = numbers[read];
+            numbers[read] = numbers[write];
+            numbers[write] = temp;
+            write++;
+        }
+    }
+    return numbers;
+}
+console.log(solution([0, 1, 0, 3, 12]));*/
+
+/*function solution(numbers){
+    let write = 0;
+    for(let read = 1; read < numbers.length; read++){
+        if(numbers[read] !== numbers[write]){
+            write++;
+            numbers[write] = numbers[read];
+        }
+    }
+    return numbers.slice(0, write + 1);
+}
+console.log(solution([1, 1, 1, 2, 2, 2, 3, 4, 4]));*/
+
+/*function solution(numbers){
+    let left = 0;
+    let right = numbers.length - 1;
+    while(left < right){
+        while(numbers[left] < 0){
+            left++;
+        }
+        while(numbers[right] >= 0){
+            right--;
+        }
+        if(left < right){
+            let temp = numbers[left];
+            numbers[left] = numbers[right];
+            numbers[right] = temp;
+        }
+    }
+    return numbers;
+}
+console.log(solution([3, -1, 4, -2, 5, -7]));*/
+
+/*function solution(s){
+    s = s.split("");
+    let i = 0;
+    let j = s.length - 1;
+    while(i < j){
+        let temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+        i++;
+        j--;
+    }
+    return s.join("");
+}
+console.log(solution("banana"));*/
+
+/*function solution(s){
+    if(s.length === 0){
+        return false;
+    }
+    let i = 0;
+    let j = s.length - 1;
+    while(i < j){
+        if(s[i] === s[j]){
+            i++;
+            j--;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(solution("racecar"));*/
+
+/*function solution(s, t){
+    if(s.length !== t.length){
+        return false;
+    }
+    let count = {};
+    for(let ch of s){
+        count[ch] = (count[ch] || 0) + 1;
+    }
+    for(let ch of t){
+        if(count[ch]){
+            count[ch]--;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(solution("listen", "silent"));*/
+
+/*function solution(numbers, k){
+    let indices = {};
+    for(let i = 0; i < numbers.length; i++){
+        if(indices[numbers[i]] !== undefined){
+            if(i - indices[numbers[i]] <= k){
+                return true;
+            }
+        }
+        indices[numbers[i]] = i;
+    }
+    return false;
+}
+console.log(solution([1, 0, 1, 1], k = 1));*/
+
+/*function solution(numbers, k){
+    let sum = 0;
+    for(let i = 0; i < k; i++){
+        sum += numbers[i];
+    }
+    let largest = sum;
+    for(let i = k; i < numbers.length; i++){
+        sum = sum - numbers[i - k] + numbers[i];
+        largest = Math.max(largest, sum);
+    }
+    return largest;
+}
+console.log(solution([2, 1, 5, 1, 3, 2], k = 3));*/
+
+/*function solution(diffs){
+    let current = 1500;
+    let highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [current, highest];
+}
+console.log(solution([-100, 200, -50, 300]));*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return h * 60 + m;
+    }
+    let lastDeparture = -1;
+    let current = toMinutes(current_time);
+    let minutes = 0;
+    let left = 0;
+    let right = departure_times.length - 1;
+    while(left <= right){
+        let mid = Math.floor((left + right) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(departure < current){
+            lastDeparture = departure;
+            minutes = current - lastDeparture;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if(lastDeparture === -1){
+        return -1;
+        }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(fragments, accessCode){
+    let count = 0;
+    let target = String(accessCode);
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combined = String(fragments[i]) + String(fragments[j]);
+            if(combined === target){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(numbers){
+    let answer = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            answer.push(1);
+        } else {
+            answer.push(0);
+        }
+    }
+    return answer;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(a){
+    let count = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount % 2 === 1){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--;
+    }   
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(n){
+    let frame = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            frame.push("*".repeat(n));
+        } else {
+            frame.push("*" + " ".repeat(n-2) + "*")
+        }
+    }
+    return frame;
+}
+console.log(solution(7));*/
+
+/*function solution(length, queries){
+    let colors = new Map();
+    let samePairs = 0;
+    let answer = [];
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){if(coord > 0 && colors.get(coord - 1) === oldColor){
+            samePairs--;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+            samePairs--;
+        }}
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        answer.push(samePairs);
+    }
+    return answer;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){let departure1 = nextShuttle(alpha2beta, currentTime);
+    if(departure1 === -1){
+        return -1;
+    }
+    currentTime = departure1 + 100;
+    let departure2 = nextShuttle(beta2alpha, currentTime);
+    if(departure2 === -1){
+        return -1;
+    }
+    currentTime = departure2 + 100;
+    missions--;}
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(numbers){
+    let sum = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            }
+        }
+        sum += x;
+    }
+    return sum;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(state, operations){
+        for(let op of operations){
+            if(op === "L"){
+                for(let i = 0; i < state.length; i++){
+                    if(state[i] === 0){
+                        state[i] = 1;
+                        break;
+                    }
+                }
+            } else {
+                let index = op.slice(1);
+                state[index] = 0;
+            }
+        }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(numbers){
+    let sum = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            } else {
+                break;
+            }
+        }
+        sum += x;
+    }
+    return sum;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){
+        let departure1 = nextShuttle(alpha2beta, currentTime);
+        if(departure1 === -1){
+            return -1;
+        }
+        currentTime = departure1 + 100;
+        let departure2 = nextShuttle(beta2alpha, currentTime);
+        if(departure2 === -1){
+            return -1;
+        }
+        currentTime = departure2 + 100;
+        missions--;
+    }
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(length, queries){
+    let colors = new Map();
+    let samePairs = 0;
+    let result = [];
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){
+            if(coord > 0 && colors.get(coord - 1) === oldColor){
+                samePairs--;
+            }
+            if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+                samePairs--;
+            }
+        } 
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        result.push(samePairs);
+    }
+    return result;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(n){
+    let frame = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            frame.push("*".repeat(n));
+        } else {
+            frame.push("*" + " ".repeat(n-2) + "*");
+        }
+    }
+    return frame;
+}
+console.log(solution(7));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--;
+    }
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(a){
+    let count = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount % 2 === 1){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(numbers){
+    let answer = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            answer.push(1);
+        } else {
+            answer.push(0);
+        }
+    }
+    return answer;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(fragments, accessCode){
+    let count = 0;
+    let target = String(accessCode);
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combined = String(fragments[i]) + String(fragments[j]);
+            if(combined === target){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return h * 60 + m;
+    }
+    let current = toMinutes(current_time);
+    let lastDeparture = -1;
+    let minutes = 0;
+    let left = 0;
+    let right = departure_times.length - 1;
+    while(left <= right){
+        let mid = Math.floor((left + right) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(departure < current){
+            lastDeparture = departure;
+            minutes = current - lastDeparture;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if(lastDeparture === -1){
+        return -1;
+    }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(diffs){
+    let current = 1500;
+    let highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [current, highest];
+}
+console.log(solution([-100, 200, -50, 300]));*/
+
+/*function solution(diffs){
+    current = 1500;
+    highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [current, highest];
+}
+console.log(solution([-100, 200, -50, 300]));*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return h * 60 + m;
+    }
+    let lastdeparture = -1;
+    let current = toMinutes(current_time);
+    let minutes = 0;
+    let left = 0;
+    let right = departure_times.length - 1;
+    while(left <= right){
+        let mid = Math.floor((left + right) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(departure < current){
+            lastdeparture = departure;
+            minutes = current - lastdeparture;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if(lastdeparture === -1){
+        return -1;
+    }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(fragments, accessCode){
+    let count = 0;
+    let target = String(accessCode);
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combined = String(fragments[i]) + String(fragments[j]);
+            if(combined === target){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(numbers){
+    let result = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            result.push(1);
+        } else {
+            result.push(0);
+        }
+    }
+    return result;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(a){
+    let answer = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount % 2 === 1){
+            answer++;
+        }
+    }
+    return answer;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--;
+    }
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(n){
+    let frame = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            frame.push("*".repeat(n));
+        } else {
+            frame.push("*" + " ".repeat(n-2) + "*");
+        }
+    }
+    return frame;
+}
+console.log(solution(7));*/
+
+/*function solution(length, queries){
+    let result = [];
+    let samePairs = 0;
+    let colors = new Map();
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){
+            if(coord > 0 && colors.get(coord - 1) === oldColor){
+                samePairs--;
+            }
+            if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+                samePairs--;
+            }
+        }
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        result.push(samePairs);
+    }
+    return result;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){
+        let departure1 = nextShuttle(alpha2beta, currentTime);
+        if(departure1 === -1){
+            return -1;
+        }
+        currentTime = departure1 + 100;
+        let departure2 = nextShuttle(beta2alpha, currentTime);
+        if(departure2 === -1){
+            return -1;
+        }
+        currentTime = departure2 + 100;
+        missions--;
+    }
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(numbers){
+    let sum = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            } else {
+                break;
+            }
+        }
+        sum += x;
+    }
+    return sum;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(numbers){
+    let sum = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            } else {
+                break;
+            }
+        }
+        sum += x;
+    }
+    return sum;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){
+        let departure1 = nextShuttle(alpha2beta, currentTime);
+        if(departure1 === -1){
+            return -1;
+        }
+        currentTime = departure1 + 100;
+        let departure2 = nextShuttle(beta2alpha, currentTime);
+        if(departure2 === -1){
+            return -1;
+        }
+        currentTime = departure2 + 100;
+        missions--;
+    }
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(length, queries){
+    let samePairs = 0;
+    let result = [];
+    let colors = new Map();
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){
+            if(coord > 0 && colors.get(coord - 1) === oldColor){
+                samePairs--;
+            }
+            if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+                samePairs--;
+            }
+        }
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        result.push(samePairs);
+    }
+    return result;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(n){
+    let frame = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            frame.push("*".repeat(n));
+        } else {
+            frame.push("*" + " ".repeat(n-2) + "*");
+        }
+    }
+    return frame;
+}
+console.log(solution(7));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--;
+    }
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(a){
+    let count = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount % 2 === 1){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(numbers){
+    let result = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            result.push(1);
+        } else {
+            result.push(0);
+        }
+    }
+    return result;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(fragments, accessCode){
+    let count = 0;
+    let target = String(accessCode);
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combined = String(fragments[i]) + String(fragments[j]);
+            if(combined === target){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return 60 * h + m;
+    }
+    let lastDeparture = -1;
+    let current = toMinutes(current_time);
+    let minutes = 0;
+    let left = 0;
+    let right = departure_times.length - 1;
+    while(left <= right){
+        let mid = Math.floor((left + right) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(departure < current){
+            lastDeparture = departure;
+            minutes = current - lastDeparture;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if(lastDeparture === -1){
+        return -1;
+    }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(diffs){
+    let current = 1500;
+    let highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [current, highest];
+}
+console.log(solution([-100, 200, -50, 300]));*/
+
+/*function solution(t, s){
+    let count = 0;
+    for(let i = 0; i < t.length - 4; i++){
+        let combined = t[i] + t[i+2] + t[i+4];
+        if(combined === s){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution("azcabcab", "acb"));*/
+
+/*function solution(words, sentence){
+    let num1 = 0;
+    let num2 = 0;
+    words = new Set(words);
+    sentence = sentence.replace(/[!;?,.]/g, "").split(" ");
+    sentence = new Set(sentence);
+    for(let word of sentence){
+        if(!words.has(word)){
+            num1++;
+        } else {
+            num2++;
+        }
+    }
+    return [num1, num2];
+}
+console.log(solution(["cat", "dog"], "there is a cat, rabbit, and another rabbit."));*/
+
+/*function solution(s){
+    let count = {};
+    for(let ch of s){
+        count[ch] = (count[ch] || 0) + 1;
+    }
+    for(let ch of s){
+        if(count[ch] > 1){
+            return ch;
+        }
+    }
+    return -1;
+}
+console.log(solution("swiss"));*/
+
