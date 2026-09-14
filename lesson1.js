@@ -9749,7 +9749,7 @@ console.log(solution(["cat", "dog"], "there is a cat, rabbit, and another rabbit
 }
 console.log(solution("swiss"));*/
 
-function solution(box){
+/*function solution(box){
     let rows = box.length;
     let cols = box[0].length;
     let rotated = [];
@@ -9776,4 +9776,6 @@ function solution(box){
 }
 console.log(solution([['#', '#', '-', '-', '-', '-', '-'], 
                       ['#', '#', '#', '-', '-', '-', '-'], 
-                      ['#', '#', '#', '-', '-', '#', '-']]));
+                      ['#', '#', '#', '-', '-', '#', '-']]));*/
+
+                      
