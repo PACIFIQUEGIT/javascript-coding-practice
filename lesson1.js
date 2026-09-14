@@ -9749,3 +9749,31 @@ console.log(solution(["cat", "dog"], "there is a cat, rabbit, and another rabbit
 }
 console.log(solution("swiss"));*/
 
+function solution(box){
+    let rows = box.length;
+    let cols = box[0].length;
+    let rotated = [];
+    for(let j = 0; j < cols; j++){
+        let row = [];
+        for(let i = rows - 1; i >= 0; i--){
+            row.push(box[i][j]);
+        }
+        rotated.push(row);
+    }
+    for(let col = 0; col < rows; col++){
+        let write = rotated.length - 1;
+        for(let row = rotated.length - 1; row >= 0; row--){
+            if(rotated[row][col] === '*'){
+                write = row - 1;
+            } else if(rotated[row][col] === '#') {
+                rotated[row][col] = '-';
+                rotated[write][col] = '#';
+                write--;
+            }
+        }
+    }
+    return rotated;
+}
+console.log(solution([['#', '#', '-', '-', '-', '-', '-'], 
+                      ['#', '#', '#', '-', '-', '-', '-'], 
+                      ['#', '#', '#', '-', '-', '#', '-']]));
