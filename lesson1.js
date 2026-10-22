@@ -10072,3 +10072,312 @@ console.log(solution([987, 50, 23]));*/
 }
 console.log(solution([-100, 200, -50, 300]));*/
 
+/*function solution(numbers){
+    let sol = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+    let a = numbers[i];
+    let b = numbers[i+1];
+    let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            sol.push(1);
+        } else {
+            sol.push(0);
+        }
+    }
+    return sol;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(n){
+    let square = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            square.push("*".repeat(n));
+        } else {
+            square.push("*" + " ".repeat(n-2) + "*");
+        }
+    }
+    return square;
+}
+console.log(solution(7));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
+
+/*function solution(s, t){
+    let sum = "";
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while(i >= 0 && j >= 0){
+        sum = String(Number(s[i]) + Number(t[j])) + sum;
+        i--;
+        j--;
+    }
+    while(i >= 0){
+        sum = s[i] + sum;
+        i--;
+    }
+    while(j >= 0){
+        sum = t[j] + sum;
+        j--;
+    }
+    return sum;
+}
+console.log(solution("123", "45"));*/
+
+/*function solution(numbers){
+    let sol = [];
+    for(let i = 0; i < numbers.length - 2; i++){
+        let a = numbers[i];
+        let b = numbers[i+1];
+        let c = numbers[i+2];
+        if(a < b && b > c || a > b && b < c){
+            sol.push(1);
+        } else {
+            sol.push(0);
+        }
+    }
+    return sol;
+}
+console.log(solution([1, 2, 1, 3, 4]));*/
+
+/*function solution(diffs){
+    let current = 1500;
+    let highest = 1500;
+    for(let diff of diffs){
+        current += diff;
+        highest = Math.max(highest, current);
+    }
+    return [highest, current];
+}
+console.log(solution([-100, 200, -50, 300]))*/
+
+/*function solution(readings){
+    let frequency = Array(10).fill(0);
+    for(let num of readings){
+        while(num >= 10){
+            let sum = 0;
+            while(num > 0){
+                sum += num % 10;
+                num = Math.floor(num / 10);
+            }
+            num = sum;
+        }
+        frequency[num]++;
+    }
+    let answer = 0;
+    for(let i = 0; i <= 9; i++){
+        if(frequency[i] >= frequency[answer]){
+            answer = i;
+        }
+    }
+    return answer;
+}
+console.log(solution([987, 50, 23]));*/
+
+/*function solution(heights, viewGap){
+    let answer = -Infinity;
+    for(let i = 0; i < heights.length; i++){
+        for(let j = viewGap; j < heights.length; j++){
+            answer = Math.min(answer, Math.abs(heights[i] - heights[j]));
+        }
+    }
+    return answer;
+}*/
+
+/*function solution(departure_times, current_time){
+    function toMinutes(time){
+        let [h, m] = time.split(":").map(Number);
+        return h * 60 + m;
+    }
+    let lastDeparture = -1;
+    let current = toMinutes(current_time);
+    let minutes = 0;
+    let left = 0;
+    let right = departure_times.length - 1;
+    while(left <= right){
+        let mid = Math.floor((left + right) / 2);
+        let departure = toMinutes(departure_times[mid]);
+        if(departure < current){
+            lastDeparture = departure;
+            minutes = current - departure;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if(lastDeparture === - 1){
+        return -1;
+    }
+    return minutes;
+}
+console.log(solution(["08:30", "10:15", "12:00", "14:45"], "13:20"));*/
+
+/*function solution(fragments, accessCode){
+    let count = 0;
+    for(let i = 0; i < fragments.length; i++){
+        for(let j = 0; j < fragments.length; j++){
+            if(i === j){
+                continue;
+            }
+            let combination = String(fragments[i]) + String(fragments[j]);
+            if(combination === accessCode){
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(solution([12, 34, 1, 234], "1234"));*/
+
+/*function solution(a){
+    let count = 0;
+    for(let num of a){
+        let s = String(num);
+        let zerocount = 0;
+        for(let ch of s){
+            if(ch === "0"){
+                zerocount++;
+            }
+        }
+        if(zerocount %  2 === 1){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(solution([4,50,100,65,2000,700,1,10]));*/
+
+/*function solution(n){
+    let square = [];
+    for(let i = 0; i < n; i++){
+        if(i === 0 || i === n - 1){
+            square.push("*".repeat(n));
+        } else {
+            square.push("*" + " ".repeat(n-2) + "*");
+        }
+    }
+    return square;
+}
+console.log(solution(7));*/
+
+/*function solution(length, queries){
+    let samePairs = 0;
+    let answer = [];
+    let colors = new Map();
+    for(let [coord, color] of queries){
+        let oldColor = colors.get(coord);
+        if(oldColor !== undefined){
+            if(coord > 0 && colors.get(coord - 1) === oldColor){
+                samePairs--;
+            }
+            if(coord < length - 1 && colors.get(coord + 1) === oldColor){
+                samePairs--;
+            }
+        }
+        colors.set(coord, color);
+        if(coord > 0 && colors.get(coord - 1) === color){
+            samePairs++;
+        }
+        if(coord < length - 1 && colors.get(coord + 1) === color){
+            samePairs++;
+        }
+        answer.push(samePairs);
+    }
+    return answer;
+}
+console.log(solution(5, [[1,"red"], [2,"red"], [4,"blue"], [3,"blue"]]));*/
+
+/*function solution(alpha2beta, beta2alpha, missions){
+    function nextShuttle(schedule, current){
+        let departure = -1;
+        let left = 0;
+        let right = schedule.length - 1;
+        while(left <= right){
+            let mid = Math.floor((left + right) / 2);
+            if(schedule[mid] >= current){
+                departure = schedule[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return departure;
+    }
+    let currentTime = 0;
+    while(missions > 0){
+        let departure1 = nextShuttle(alpha2beta, currentTime);
+        if(departure1 === -1){
+            return -1;
+        } 
+        currentTime = departure1 + 100;
+        let departure2 = nextShuttle(beta2alpha, currentTime);
+        if(departure2 === -1){
+            return -1;
+        }
+        currentTime = departure2 + 100;
+        missions--;
+    }
+    return currentTime;
+}
+console.log(solution([0, 50, 120, 300], [150, 260, 400], 2));*/
+
+/*function solution(numbers){
+    let result = 0;
+    while(true){
+        let start = -1;
+        for(let i = 0; i < numbers.length; i++){
+            if(numbers[i] !== 0){
+                start = i;
+                break;
+            }
+        }
+        if(start === -1){
+            break;
+        }
+        let x = numbers[start];
+        for(let i = start; i < numbers.length; i++){
+            if(numbers[i] >= x){
+                numbers[i] -= x;
+            } else {
+                break;
+            }
+        }
+        result += x;
+    }
+    return result;
+}
+console.log(solution([3, 5, 2]));*/
+
+/*function solution(state, operations){
+    for(let op of operations){
+        if(op === "L"){
+            for(let i = 0; i < state.length; i++){
+                if(state[i] === 0){
+                    state[i] = 1;
+                    break;
+                }
+            }
+        } else {
+            let index = op.slice(1);
+            state[index] = 0;
+        }
+    }
+    return state.join("");
+}
+console.log(solution([1,0,0,1,1], ["L","C2","L","C4"]));*/
